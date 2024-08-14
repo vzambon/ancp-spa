@@ -1,0 +1,14 @@
+services:
+  quasar:
+    image: nginx
+    networks:
+      - nginx_spa
+    expose:
+      - 80
+    volumes:
+      - './dist/spa:/usr/share/nginx/html'
+      - './default.conf:/etc/nginx/conf.d/default.conf'
+networks:
+  nginx_spa:
+    name: spa-network
+    external: true

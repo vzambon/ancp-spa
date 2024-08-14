@@ -1,0 +1,33 @@
+.q-table {
+    border-bottom: 1px solid #eee;
+    border-top: none!important;
+  }
+  .q-table thead, .q-table thead tr, .q-table thead tr th, .q-table tr td {
+    border-radius: 0!important;
+    background-color: white;
+  }
+  .q-table .q-tr {
+    border: none!important;
+    border-right: none!important;
+    border-left: none!important;
+  }
+  .q-table tr th {
+    border-right: none!important;
+    border-left: none!important;
+    font-family: sans-serif!important;
+    font-weight: normal!important;
+    font-weight: bolder!important;
+  }
+  .q-table tr td {
+    border-right: none!important;
+    border-left: none!important;
+    font-family: sans-serif!important;
+    font-weight: normal!important;
+  }
+  .q-table tr:nth-child(odd) td {
+    background: rgba(0, 0, 0, 0.03);
+  }
+  .q-table tr th {
+    background: #f3f3f3;
+  }
+  

@@ -1,0 +1,6 @@
+stages:
+  - build
+  - deploy
+
+include:
+  - local: 'gitlab-ci/production.yml'

@@ -1,0 +1,38 @@
+production_build:
+  stage: build
+  image: node:20
+  script:
+    - echo "Building quasar project..."
+    - cp .env.example .env
+    - sed -i "s|web_url|$WEB_URL|g" .env
+    - sed -i "s|api_url|$API_URL|g" .env
+    - npm install -g @quasar/cli
+    - npx yarn install
+    - quasar build
+    - echo "Build complete."
+  artifacts:
+    paths:
+      - dist/
+      - default.conf
+  environment:
+    name: production
+  only:
+    - main
+  tags:
+    - production-spa
+
+production_deploy:
+  stage: deploy
+  dependencies:
+    - production_build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - echo "Deploying docker container..."
+    - docker compose up -d --build --force-recreate
+    - echo "Deploy complete."
+  only:
+    - main
+  tags:
+    - production-spa
